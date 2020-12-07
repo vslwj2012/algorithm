@@ -11,15 +11,16 @@ public class Subject11 {
 
     /**
      * 暴力
+     *
      * @param height
      * @return
      */
     public static int maxArea(int[] height) {
-        int maxArea=0;
-        for (int i=0;i<height.length;i++){
+        int maxArea = 0;
+        for (int i = 0; i < height.length; i++) {
             int area = 0;
-            for (int j=i+1;j<height.length;j++){
-                maxArea=(area=(j-i)*Math.min(height[i],height[j]))>maxArea?area:maxArea;
+            for (int j = i + 1; j < height.length; j++) {
+                maxArea = (area = (j - i) * Math.min(height[i], height[j])) > maxArea ? area : maxArea;
             }
         }
         return maxArea;
@@ -27,15 +28,16 @@ public class Subject11 {
 
     /**
      * 双指针
+     *
      * @param height
      * @return
      */
-    public static int maxArea1(int[] height){
-        int maxArea=0;
-        int area=0;
-        int i=0,j=height.length-1;
-        while (i<j){
-            maxArea=(area=(j-i)*Math.min(height[i],height[j]))>maxArea?area:maxArea;
+    public static int maxArea1(int[] height) {
+        int maxArea = 0;
+        int area = 0;
+        int i = 0, j = height.length - 1;
+        while (i < j) {
+            maxArea = (area = (j - i) * Math.min(height[i], height[j])) > maxArea ? area : maxArea;
             if (height[i] > height[j]) {
                 j--;
             } else {
@@ -46,7 +48,7 @@ public class Subject11 {
     }
 
     public static void main(String[] args) {
-        int[] height={1,8,6,2,5,4,8,3,7};
+        int[] height = {1, 8, 6, 2, 5, 4, 8, 3, 7};
         System.out.println(maxArea1(height));
     }
 }
