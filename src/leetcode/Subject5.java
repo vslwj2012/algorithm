@@ -8,6 +8,7 @@ package leetcode;
 public class Subject5 {
     /**
      * 中心扩散法
+     *
      * @param s
      * @return
      */
@@ -18,18 +19,18 @@ public class Subject5 {
         String longestStr = String.valueOf(s.charAt(0));
         String str = "";
         for (int sameStart = 0; sameStart < s.length(); sameStart++) {
-            int sameEnd=sameStart;
-            while (sameEnd<s.length()&&s.charAt(sameEnd)==s.charAt(sameStart)){
+            int sameEnd = sameStart;
+            while (sameEnd < s.length() && s.charAt(sameEnd) == s.charAt(sameStart)) {
                 sameEnd++;
             }
             sameEnd--;
-            int m=1;
-            for (;sameStart-m>=0&&sameEnd+m<s.length();m++){
-                if (s.charAt(sameEnd+m)!=s.charAt(sameStart-m)){
+            int m = 1;
+            for (; sameStart - m >= 0 && sameEnd + m < s.length(); m++) {
+                if (s.charAt(sameEnd + m) != s.charAt(sameStart - m)) {
                     break;
                 }
             }
-            longestStr=longestStr.length()>(str=s.substring(sameStart-m+1,sameEnd+m)).length()?longestStr:str;
+            longestStr = longestStr.length() > (str = s.substring(sameStart - m + 1, sameEnd + m)).length() ? longestStr : str;
         }
         return longestStr;
     }
